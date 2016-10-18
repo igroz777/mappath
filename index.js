@@ -108,13 +108,35 @@ function getDirections(a, b){
 	}).then(function(response){
 
 		//handle response
-		console.log("call made");
 
 		var result = response.body;
 
-		console.log(result);
+		var response = {};
+
+		var route = result.routes.shift();
+		var legs = route.legs.shift();
+
+		
+
+		var steps = legs.steps.map(function(step) {
+	    var route = striptags(step.html_instructions) + ' (' + step.distance.text + ')';
+	    return route;
+	  });
+
+		response.start = legs.start_address;
+		response.end = legs.end_address;
+		response.duration = legs.duration.text;
+		response.routes = steps;
 		
 		
+		console.log(chalk.underline.bold('Route'));
+    console.log(chalk.green.bold(response.start) + ' → ' + chalk.green.bold(response.end));
+    console.log(chalk.underline.bold('Duration'));
+    console.log(chalk.green(response.duration));
+    console.log(chalk.underline.bold('Routes'));
+    response.routes.forEach(function(route) {
+    	console.log(chalk.yellow(route));
+    });
 
 
 
