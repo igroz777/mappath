@@ -1,0 +1,1 @@
+This is a simple command line application written in JS(with node) that can be used to get directions from one location to another by consuming/utilising Google's public map API.
