@@ -49,7 +49,7 @@ process.stdin.on("data", function(text){
 				console.log("Destination is not set");
 				return;
 			}
-			//getDirections(origin, destination);
+			getDirections(origin, destination);
 			return;
 
 		}else{
@@ -88,3 +88,45 @@ process.stdin.on("data", function(text){
 	
 })
 console.log("Welcome to MapPath!");
+
+
+
+
+function getDirections(a, b){
+
+	console.log("Getting directions...");
+
+	var locations = {
+		origin: a,
+		destination: b
+	}
+
+	//make call to google maps api with specified locations
+	got(URL, {
+		query: locations,
+		json: true
+	}).then(function(response){
+
+		//handle response
+		console.log("call made");
+
+		var result = response.body;
+
+		console.log(result);
+		
+		
+
+
+
+	});
+}
+
+
+ 
+
+  
+
+
+
+
+
