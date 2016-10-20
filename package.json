@@ -1,0 +1,19 @@
+{
+  "name": "mappath",
+  "version": "1.0.0",
+  "description": "cli tool for getting directions",
+  "preferGlobal":true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gilbert",
+  "license": "ISC",
+  "bin":{
+  	"mappath":"index.js"
+  },
+  "dependencies": {
+    "got": "^5.1.0",
+    "striptags": "^2.1.1",
+    "chalk": "^1.1.3"
+  }
+}
